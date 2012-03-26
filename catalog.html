@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
+  <![endif]-->
+  <!--[if IE 7]>
+  <html class="no-js lt-ie9 lt-ie8" lang="en">
+    <![endif]-->
+    <!--[if IE 8]>
+    <html class="no-js lt-ie9" lang="en">
+      <![endif]-->
+      <!--[if gt IE 8]>
+      <!-->
+      <html lang="en">
+        <!--<![endif]-->
+<head>
+        <meta charset="utf-8" />
+        <!-- Set the viewport width to device width for mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Best online store" />
+        <title>HumanFactors Online StoreFront</title>
+        <!-- Included CSS Files -->
+        <link rel="stylesheet" href="css/globals.css">
+        <link rel="stylesheet" href="css/typography.css">
+        <link rel="stylesheet" href="css/grid.css">
+        <link rel="stylesheet" href="css/ui.css">
+        <link rel="stylesheet" href="css/forms.css">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="css/mobile.css">
+        <link rel="stylesheet" href="css/presentation.css">
+        <link rel="stylesheet" href="css/basic.css" type="text/css" />
+        <link rel="stylesheet" href="css/galleriffic-2.css" type="text/css" />
+        <link rel="stylesheet" href="css/jquery.fancybox-1.3.4.css">
+        <script src="jquery/jquery.min.js"></script>
+        <script src="js/underscore.js"></script>
+        <script src="js/backbone.js"></script>
+
+        <script type="text/javascript" src="js/jquery.galleriffic.js"></script>
+        <script type="text/javascript" src="js/jquery.opacityrollover.js"></script>
+        <script src="jquery/jquery.reveal.js"></script>
+        <script src="js/jquery.fancybox-1.3.4.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/model.js"></script>
+         <script src="js/storefrontviews.js"></script>
+        <script src="js/storefront.js"></script>
+</head>
+<body id="-page" class="">
+        <div id="zurBar" class="container">
+          <div class="row">
+            <div class="four columns">
+              <h1>
+                <a href="index.html">Your Online StoreFront</a>
+              </h1>
+            </div>
+            <div class="eight columns hide-on-phones"> <strong class="right"><a href="DevInstructions.pdf" target="_blank" class="small blue nice button src-download">Help?</a></strong> 
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="twelve columns">
+              <div class="foundation-header">
+                <h1>
+                  <a href="index.html">StoreFront</a>
+                </h1>
+                <h4 class="subheader">The online store for your all your shopping needs!</h4>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="two columns">
+              <dl class="nice tabs vertical hide-on-phones">
+                <dd>
+                  <a href="index.html">Home</a>
+                </dd>
+                <dd>
+                  <a href="catalog.html" class="active">Catalog</a>
+                </dd>
+                <dd>
+                  <a href="listPrice.html">List Prices</a>
+                </dd>
+              </dl>
+              <div class="panel">
+                <form class="custom">
+                  <h6 style="padding-bottom:5px">Catalog Options</h6>
+                  <select id="selectedcatalog">
+                    <option selected>Full&nbsp;Catalog</option>
+                    <option>Empty&nbsp;Catalog</option>
+                    <option>Error&nbsp;Catalog</option>
+                  </select>
+                </form>
+              </div>
+            </div>
+            <div class="four columns">
+              <h3>Catalog</h3>
+              <!-- START : PUT CONTENT HERE -->
+              <div id="gallery" class="content">
+
+                <div id="thumbs" class="navigation">
+                  <ul class="thumbs noscript">
+                  </ul>
+                </div>
+              </div>
+              <!-- END : PUT CONTENT HERE --> </div>
+          </div>
+          <div class="row">
+            <div class="twelve columns">
+              <dl class="nice tabs mobile show-on-phones">
+                <dd>
+                  <a href="index.html" class="active">Front</a>
+                </dd>
+                <dd>
+                  <a href="catalog.html">Catalog</a>
+                </dd>
+                <dd>
+                  <a href="listPrice.html">List Prices</a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <!-- Footer -->
+          <footer class="row">
+            <section class="five columns">
+              <h6> <strong>Made by HumanFactors</strong>
+              </h6>
+            </section>
+            <section class="four columns"></section>
+          </footer>
+          <!-- /Footer --> </div>
+        <script type="text/template" id="template_thumbnail">
+              <li>
+                    <a class="thumb" href="<%=product.fullimageURL%>" title="<%=product.name%>">
+                      <img class="thumbNailImage" src="<%=product.thumbnailURL%>" alt="<%=product.name%>" data-fullImageURL="<%=product.fullimageURL%>"/>
+                      </a>
+                    <div class="caption">
+                      <div class="download">
+                        <a href="<%=product.fullimageURL%>">Download Original</a>
+                      </div>
+                      <div class="image-title"><%=product.name%></div>
+                      <div class="image-desc"><%=product.description%></div>
+                    </div>
+                  </li>
+        </script>
+</body>
+      </html>
