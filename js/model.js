@@ -1,7 +1,7 @@
 // JS file to store all the models.
 $(document).ready(function(){
 	
-	window.Product = Backbone.Model.extend({
+	var Product = Backbone.Model.extend({
 		initialize: function() {
 			this.name = this.get("name");
 			this.fullimageURL = this.get("fullimageURL");
@@ -11,7 +11,7 @@ $(document).ready(function(){
 		}
 	});
 
-	window.Products = Backbone.Collection.extend({ model : Product});
+	var Products = Backbone.Collection.extend({ model : Product});
 
 	window.Catalog = Backbone.Model.extend({
 		initialize: function()
@@ -24,5 +24,34 @@ $(document).ready(function(){
 			return "json/catalog_full.json";
 		}
 
+	});
+
+
+	var Inventory = Backbone.Model.extend({
+		initialize: function() {
+			this.onHand = this.get("onHand");
+			this.onOrder = this.get("onOrder");
+		}
+	})
+	var Listing = Backbone.Model.extend({
+		
+		initialize: function() {
+			this.name = this.get("name");
+			this.price = this.get("price");
+			this.inventory = new Inventory(this.get("inventory"));
+		}
+	});
+
+	var Listings = Backbone.Collection.extend({ model: Listing });
+
+	window.Prices = Backbone.Model.extend({
+		initialize: function() {
+			this.catalogName = this.get("catalogName");
+			this.listings = new Listings(this.get("listings"));
+		},
+
+		url: function() {
+			return "json/price_full.json";
+		}
 	});
 });

@@ -19,9 +19,18 @@
 <link rel="stylesheet" href="css/app.css">
 <link rel="stylesheet" href="css/mobile.css">
 <link rel="stylesheet" href="css/presentation.css">
+ <link rel="stylesheet" href="css/galleriffic-2.css" type="text/css" />
 <script src="jquery/jquery.min.js"></script>
+<script src="js/underscore.js"></script>
+<script src="js/backbone.js"></script>
+<script type="text/javascript" src="js/jquery.galleriffic.js"></script>
+<script type="text/javascript" src="js/jquery.opacityrollover.js"></script>
+
 <script src="jquery/jquery.reveal.js"></script>
 <script src="js/app.js"></script>
+<script src="js/model.js"></script>
+<script src="js/listpriceviews.js"></script>
+<script src="js/listprice.js"></script>
 </head>
 <body id="-page" class="">
 <div id="zurBar" class="container">
@@ -52,7 +61,7 @@
         <form class="custom">
           <h6 style="padding-bottom:5px">Catalog Options</h6>
           </a>
-          <select id="selectedcatalog">
+          <select id="selectedlistItem">
             <option selected="true">Full&nbsp;Catalog</option>
             <option>Empty&nbsp;Catalog</option>
             <option>Error&nbsp;Catalog</option>
@@ -60,10 +69,15 @@
         </form>
       </div>
     </div>
-    <div class="four columns">
+    <div class="six columns">
       <h3>List Prices</h3>
       <!-- START : PUT CONTENT HERE -->
-      Put list prices here.
+      <div id="gallery" class="content">
+                <div id="thumbs" class="navigation">
+                  <ul class="thumbs noscript">
+                  </ul>
+                </div>
+              </div>
       <!-- END : PUT CONTENT HERE -->
     </div>
   </div>
@@ -84,5 +98,15 @@
   <section class="four columns">
   <!-- /Footer -->
 </div>
+ <script type="text/template" id="template_priceList">
+             <li style="margin: 5px 20px 5px 0;">
+                    <a class="thumb" href="<%=listing.name%>" 
+                    style="width:200px; height:50px;background: <%=listing.inventory.onHand <= 20 ? '#33FF66' : '#CCFF66'%>;text-align:center; #top:50%;vertical-align: middle;color:black;" title="<%=listing.price%>">
+                     <span style="vertical-align: middle;">
+                     <%=listing.name%><br>$<span style="font-weight:bold;"><%=listing.price%></span> (<%=listing.inventory.onHand%>)
+                     </span>
+                    </a>
+                  </li>
+        </script>
 </body>
 </html>
