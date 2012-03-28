@@ -75,7 +75,7 @@ function renderPrices() {
 				if(response.catalogName == "Empty Catalog")
 				{
 					clearContents();
-					$("ul").prepend(response.catalogName);
+					$("ul").prepend("This Catalog is empty - No Prices to display");
 				}
 				else if (response.status == "ERROR"){
 					
@@ -83,6 +83,7 @@ function renderPrices() {
 					$("ul").append("<br><u><b>Status</b></u>: " + response.status);
 					$("ul").append("<br><u><b>Error Code</b></u>: "+response.errorCode);
 					$("ul").append("<br><u><b>Error Details</b></u>: "+response.errorDetails);
+					$("ul").append("<br><br> <h5>Please choose a different catalog. </h5>" );
 				}
 				else
 					renderPrices();

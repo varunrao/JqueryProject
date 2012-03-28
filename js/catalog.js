@@ -96,7 +96,7 @@ $(document).ready(function() {
 				if(response.catalogName == "Empty Catalog")
 				{
 					clearContents();
-					$("ul").prepend(response.catalogName);
+					$("ul").prepend("This Catalog is empty");
 				}
 				else if (response.status == "ERROR"){
 					
@@ -104,6 +104,7 @@ $(document).ready(function() {
 					$("ul").append("<br><u><b>Status</b></u>: " + response.status);
 					$("ul").append("<br><u><b>Error Code</b></u>: "+response.errorCode);
 					$("ul").append("<br><u><b>Error Details</b></u>: "+response.errorDetails);
+					$("ul").append("<br><br> <h5>Please choose a different catalog. </h5>" );
 				}
 				else
 					renderGallary();
