@@ -14,8 +14,8 @@ $(document).ready(function() {
 	});
 
 	
-	var catelog_full = new Catalog();
-	catelog_full.fetch({
+	var catalog = new Catalog();
+	catalog.fetch({
 		success: function()
 		{
 			renderGallary();
@@ -26,7 +26,7 @@ $(document).ready(function() {
 	function renderGallary() {
 		
 		var  gallary_view = new Gallary_View({
-				model: catelog_full.get("products")
+				model: catalog.get("products")
 			});
 		gallary_view.render();
 
@@ -68,16 +68,55 @@ $(document).ready(function() {
 		$("a#fullimage-fancybox").fancybox({ 
 				'hideOnContentClick': true, 
 				'enableEscapeButton': true, 
-				'frameHeight' : 600,
-				'openSpeed' : 'slow'
+				'width': '100px',
+				'height' : 300,
+				'openSpeed' : 'slow',
+				'onComplete' : function(){
+			         //$('#fancybox-content').css('height', 'px');
+			    }
 			});
 
          $(".thumb").on("click", function() {
          		$("a#fullimage-fancybox").attr('href',$(this).children("img").attr("data-fullImageURL"))
-         		$("a#fullimage-fancybox").attr('title',$(this).attr("title"))
-    			//force a launch of the fancybox
+         		$("a#fullimage-fancybox").attr('title',
+         				$(this).attr("title") + " - (" + 
+         					$(this).attr("data-description") + ") - $" + 
+         						$(this).attr("data-price"))
+	    			//force a launch of the fancybox  			
 				$("a#fullimage-fancybox").click();
+				$.fancybox.resize();
          });
+	}
+	
+	
+	$("#selectedcatalog").on("change", function() {
+		catalog.url = "json/" + $(this).val();
+		catalog.fetch({
+			success: function(model, response) {
+				if(response.catalogName == "Empty Catalog")
+				{
+					clearContents();
+					$("ul").prepend(response.catalogName);
+				}
+				else if (response.status == "ERROR"){
+					
+					clearContents();
+					$("ul").append("<br><u><b>Status</b></u>: " + response.status);
+					$("ul").append("<br><u><b>Error Code</b></u>: "+response.errorCode);
+					$("ul").append("<br><u><b>Error Details</b></u>: "+response.errorDetails);
+				}
+				else
+					renderGallary();
+			},
+			error: function(model, response) {
+				alert("Error in Fetch : " + response.responseText);
+			}
+		})
+	});
+
+	function clearContents(){
+		$("ul").empty();
+		$(".pagination").remove();
 	}	
 
 	

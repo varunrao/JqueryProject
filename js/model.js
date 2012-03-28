@@ -26,7 +26,7 @@ $(document).ready(function(){
 
 	});
 
-
+	// Model for the Prices
 	var Inventory = Backbone.Model.extend({
 		initialize: function() {
 			this.onHand = this.get("onHand");
@@ -54,4 +54,14 @@ $(document).ready(function(){
 			return "json/price_full.json";
 		}
 	});
+
+	// Model for the Error
+
+	var Error = Backbone.Model.extend({
+		initialize: function(){
+			this.status = this.get("status");
+			this.errorCode = this.get("errorCode");
+			this.errorDetails = this.get("errorDetails"); 		
+		}
+	})
 });

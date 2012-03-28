@@ -25,6 +25,7 @@ $(document).ready(function(){
 		},
 
 		render: function(){
+			$(this.el).empty();
 			for(var i = 0; i < this.model.length; i++){
 				var product = this.model[i];
 				var thubmnail_view = new Thubmnail_View({model : product});

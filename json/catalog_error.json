@@ -1,5 +1,5 @@
 {
 	"status": "ERROR",
 	"errorCode": "TECHNICAL_ERROR",
-	"errorDetails": "java.lang.Exception: Error Exception com.parago.campaignservice.businesslogic.CampaignService.searchCampaignsByAttributesUsingProxy(CampaignService.java:220)\r\n\tat com.parago.campaignservice.businesslogic.CampaignService.searchCampaignsByAttributes(CampaignService.java:47)\r\n\tat com.parago.campaignservice.businesslogic.RestCampaignService.searchCampaignsByAttributes(RestCampaignService.java:116)\r\n\tat com.parago.campaignservice.businesslogic.RestCampaignService$Proxy$_$$_WeldCl",
+	"errorDetails": "java.lang.Exception: Error Exception com.parago.campaignservice.businesslogic.CampaignService.searchCampaignsByAttributesUsingProxy(CampaignService.java:220)\r\n\tat com.parago.campaignservice.businesslogic.CampaignService.searchCampaignsByAttributes(CampaignService.java:47)\r\n\tat com.parago.campaignservice.businesslogic.RestCampaignService.searchCampaignsByAttributes(RestCampaignService.java:116)\r\n\tat com.parago.campaignservice.businesslogic.RestCampaignService$Proxy$_$$_WeldCl"
 }

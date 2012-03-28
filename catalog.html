@@ -42,7 +42,7 @@
         <script src="js/app.js"></script>
         <script src="js/model.js"></script>
          <script src="js/catelogviews.js"></script>
-        <script src="js/catelog.js"></script>
+        <script src="js/catalog.js"></script>
 </head>
 <body id="-page" class="">
         <div id="zurBar" class="container">
@@ -84,9 +84,9 @@
                 <form class="custom">
                   <h6 style="padding-bottom:5px">Catalog Options</h6>
                   <select id="selectedcatalog">
-                    <option selected>Full&nbsp;Catalog</option>
-                    <option>Empty&nbsp;Catalog</option>
-                    <option>Error&nbsp;Catalog</option>
+                    <option selected value="catalog_full.json">Full&nbsp;Catalog</option>
+                    <option value="catalog_empty.json">Empty&nbsp;Catalog</option>
+                    <option value="catalog_error.json">Error&nbsp;Catalog</option>
                   </select>
                 </form>
               </div>
@@ -129,7 +129,7 @@
           <!-- /Footer --> </div>
         <script type="text/template" id="template_thumbnail">
               <li style="margin: 5px 20px 5px 0;">
-                    <a class="thumb" href="<%=product.fullimageURL%>" title="<%=product.name%>">
+                    <a class="thumb" href="<%=product.fullimageURL%>" title="<%=product.name%>" data-price="<%=product.price%>" data-description="<%=product.description%>">
                       <img class="thumbNailImage" src="<%=product.thumbnailURL%>" alt="<%=product.name%>" data-fullImageURL="<%=product.fullimageURL%>"/>
                       </a>
                   </li>

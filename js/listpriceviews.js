@@ -24,6 +24,7 @@ $(document).ready(function(){
 		},
 
 		render: function(){
+			$(this.el).empty();
 			for(var i = 0; i < this.model.length; i++){
 				var listing = this.model[i];
 				var pricelist_view = new PriceItem_View({model : listing});

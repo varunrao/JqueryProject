@@ -27,6 +27,8 @@ function renderPrices() {
 		var  priceList_View = new PriceList_View({
 				model: pricesListing_full.get("listings")
 			});
+		
+		$(".pagination").remove();
 		priceList_View.render();
 
 		$('#thumbs').galleriffic({
@@ -67,7 +69,33 @@ function renderPrices() {
 		
 	}	
 	$("#selectedlistItem").on("change", function() {
-		alert($(this).val());
+		pricesListing_full.url = "json/" + $(this).val();
+		pricesListing_full.fetch({
+			success: function(model, response) {
+				if(response.catalogName == "Empty Catalog")
+				{
+					clearContents();
+					$("ul").prepend(response.catalogName);
+				}
+				else if (response.status == "ERROR"){
+					
+					clearContents();
+					$("ul").append("<br><u><b>Status</b></u>: " + response.status);
+					$("ul").append("<br><u><b>Error Code</b></u>: "+response.errorCode);
+					$("ul").append("<br><u><b>Error Details</b></u>: "+response.errorDetails);
+				}
+				else
+					renderPrices();
+			},
+			error: function(model, response) {
+				alert("error");
+			}
+		})
 	});
+
+	function clearContents(){
+		$("ul").empty();
+		$(".pagination").remove();
+	}
 });
 
